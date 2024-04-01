@@ -85,6 +85,7 @@ Staff-Staff (Supervisor-Subordinate) Recursive Relationship (1:M):
 
 The Staff entity may have a recursive relationship involving supervisors and subordinates, representing hierarchical structures within the staff members of the clinic. In this recursive relationship, each staff member (e.g., a supervisor) can be associated with one or more other staff members (e.g., subordinates). This relationship enables tracking supervisory relationships within the clinic's staff hierarchy, ensuring clear delineation of reporting structures and responsibilities.
 
+<img width="770" alt="datamodel1" src="https://github.com/TrungTNguyenn/Hospital-Project-I/assets/140082975/6ce8cc92-e897-46ae-9024-4edfa990f1e7">
 
 
 ## Data Dictionary:
