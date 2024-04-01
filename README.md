@@ -75,15 +75,19 @@ These relationships form the backbone of the data model, enabling efficient mana
 Prescription-Staff Relationship (1:M):
 
 The Prescription entity is related to the Staff entity in a one-to-many relationship. Each prescription is associated with the staff member who prescribed it, indicating a one-to-many relationship. This relationship allows for tracking which staff members are responsible for prescribing medications to patients, ensuring proper attribution of medical interventions.
+
 Prescription-Patient Relationship (1:M):
 
 Similarly, the Prescription entity is linked to the Patient entity in a one-to-many relationship. Each prescription is associated with a specific patient, indicating a one-to-many relationship. This relationship enables tracking medications prescribed to individual patients, facilitating medication management and patient care.
+
 Emergency Visit-Facility Equipment Relationship (1:M):
 
 The EmergencyVisit entity is related to the FacilityEquipment entity in a one-to-many relationship. Each emergency visit may involve the use of various medical equipment, indicating a one-to-many relationship. This relationship allows for tracking the equipment used during each emergency visit, ensuring proper maintenance and availability of equipment for patient care.
+
 Emergency Visit-Incident Log Relationship (1:M):
 
 Additionally, the EmergencyVisit entity is associated with the IncidentLog entity in a one-to-many relationship. Each emergency visit may result in incidents or accidents that require documentation, indicating a one-to-many relationship. This relationship facilitates recording incident details associated with each emergency visit, ensuring proper follow-up and resolution.
+
 Staff-Staff (Supervisor-Subordinate) Recursive Relationship (1:M):
 
 The Staff entity may have a recursive relationship involving supervisors and subordinates, representing hierarchical structures within the staff members of the clinic. In this recursive relationship, each staff member (e.g., a supervisor) can be associated with one or more other staff members (e.g., subordinates). This relationship enables tracking supervisory relationships within the clinic's staff hierarchy, ensuring clear delineation of reporting structures and responsibilities.
