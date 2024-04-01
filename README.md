@@ -63,7 +63,7 @@ Similarly, the Prescription table is related to the EmergencyVisit table in a on
 
 The MedicalProcedure table is associated with the EmergencyVisit table in a one-to-many relationship. This relationship enables tracking medical procedures conducted during each emergency visit, facilitating comprehensive documentation of patient care interventions.
 
-**EmergencyVisit-Billing Relationship (1:M):**
+**EmergencyVisit-Billing Relationship (1:1):**
 
 The Billing table maintains a one-to-one relationship with the EmergencyVisit table. This relationship indicates that each visit is a seperate instance with its own billing id. billing information is associated with one emergency visit, ensuring accurate financial documentation and patient billing.
 
