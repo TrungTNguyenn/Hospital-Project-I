@@ -69,19 +69,19 @@ The Billing table maintains a one-to-one relationship with the EmergencyVisit ta
 
 **InsuranceProvider-Billing Relationship (1:M):**
 
-Additionally, the Billing table is related to the InsuranceProvider entity in a one-to-many relationship. This relationship allows for linking billing records to specific insurance providers, facilitating proper processing of insurance claims and reimbursement.
+Additionally, the Billing table is related to the InsuranceProvider entity in a one-to-many relationship. This relationship allows for linking billing records to specific insurance providers, facilitating proper processing of insurance claims and reimbursement. One insurance agency can be associated with multiple bills.
 
 **Staff-Prescription Relationship (1:M):**
 
-The Prescription entity is related to the Staff entity in a one-to-many relationship. Each prescription is associated with the staff member who prescribed it, indicating a one-to-many relationship. This relationship allows for tracking which staff members are responsible for prescribing medications to patients, ensuring proper attribution of medical interventions.
+The Prescription entity is related to the Staff entity in a one-to-many relationship. Each prescription is associated with the staff member who prescribed it, indicating a one-to-many relationship. This relationship allows for tracking which staff members are responsible for prescribing medications to patients, ensuring proper record-keeping of prescriptions.
 
 **Patient-Prescription Relationship (1:M):**
 
-Similarly, the Prescription entity is linked to the Patient entity in a one-to-many relationship. Each prescription is associated with a specific patient, indicating a one-to-many relationship. This relationship enables tracking medications prescribed to individual patients, facilitating medication management and patient care.
+Similarly, the Prescription entity is linked to the Patient entity in a one-to-many relationship. Each patient can have various prescriptions, indicating a one-to-many relationship. This relationship enables tracking medications prescribed to individual patients, facilitating medication management and patient care.
 
 **FacilityEquipment-EmergencyVisit Relationship (1:M):**
 
-The EmergencyVisit entity is related to the FacilityEquipment entity in a one-to-many relationship. Each emergency visit may involve the use of various medical equipment, indicating a one-to-many relationship. This relationship allows for tracking the equipment used during each emergency visit, ensuring proper maintenance and availability of equipment for patient care.
+The EmergencyVisit entity is related to the FacilityEquipment entity in a one-to-many relationship. Each emergency visit may involve the use of various pieces of medical equipment, indicating a one-to-many relationship. This relationship allows for tracking the equipment used during each emergency visit, ensuring proper maintenance and availability of equipment for patient care.
 
 **IncidentLog-EmergencyVisit Relationship (1:M):**
 
