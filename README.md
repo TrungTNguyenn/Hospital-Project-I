@@ -65,7 +65,7 @@ The MedicalProcedure table is associated with the EmergencyVisit table in a one-
 
 **EmergencyVisit-Billing Relationship (1:M):**
 
-The Billing table maintains a one-to-many relationship with the EmergencyVisit table. This relationship indicates that billing information is associated with each emergency visit, ensuring accurate financial documentation and patient billing.
+The Billing table maintains a one-to-one relationship with the EmergencyVisit table. This relationship indicates that each visit is a seperate instance with its own billing id. billing information is associated with one emergency visit, ensuring accurate financial documentation and patient billing.
 
 **InsuranceProvider-Billing Relationship (1:M):**
 
