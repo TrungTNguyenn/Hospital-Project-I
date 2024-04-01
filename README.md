@@ -5,13 +5,16 @@
 
 ## Team Members
 
-Ainslie Noble @ainsliehn
+[Ainslie Noble](https://github.com/ainsliehn)
 
-Austin Pasley @apasley
 
-Justin Leeds @justinleeds
+[Austin Pasley](https://github.com/apasley)
 
-Trung Nguyen @TrungTNguyenn
+[Justin Leeds](https://github.com/justinleeds)
+
+
+[Trung Nguyen](https://github.com/TrungTNguyenn)
+
 
 
 
