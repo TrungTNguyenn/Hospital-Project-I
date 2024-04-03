@@ -105,16 +105,16 @@ SELECT *
 FROM IncidentLog
 WHERE natureOfIncident REGEXP 'Complaint';
 
-<u> Returns all incidents that were listed as complaints.
-A manager of the hospital would utilize this to ensure that the hospital would address these incidents and complaints to make sure that they don’t happen again, and they make use of it to determine the performance of their staff. This data can be referenced if a situation leads to legal issues or insurance claims. </u>
+***Returns all incidents that were listed as complaints.***
+_A manager of the hospital would utilize this to ensure that the hospital would address these incidents and complaints to make sure that they don’t happen again, and they make use of it to determine the performance of their staff. This data can be referenced if a situation leads to legal issues or insurance claims._
 
 SELECT *
 FROM Patient
 WHERE gender = 'F'
 AND birthDate > '2002-01-01';
 
-<u> Returns the patientID, first name, last name, birthday, gender, phone number, and medical histories of all female patients who were born after January 2002.
-A manager would be interested in these query results because it could help quickly access each female patient’s exact information and medical history born after January 2002 so that no mistakes are made in misidentifying a person. </u>
+***Returns the patientID, first name, last name, birthday, gender, phone number, and medical histories of all female patients who were born after January 2002.***
+_A manager would be interested in these query results because it could help quickly access each female patient’s exact information and medical history born after January 2002 so that no mistakes are made in misidentifying a person._
 
 SELECT providerID, providerName
 FROM MedicalProvider med
@@ -122,15 +122,15 @@ WHERE NOT EXISTS (SELECT *
 FROM Prescription p
 WHERE p.prescribingPhysician = med.providerID);
 
-<u> Returns all doctors who have not written any prescriptions.
-A manager would be interested in these query results because it would aid in distinguishing which doctors have not been diagnosing patients properly, or haven’t been as productive as other doctors. This may be helpful if another provider sees the patient again, and can see which provider prescribed the medication, and collaborate on the best treatment plan. This data can also be used to track a provider to see if they are overprescribing medications, as this is a liability. This would allow the managers to address the doctors to make sure there isn’t anything wrong or their patients are just all generally healthy. </u>
+***Returns all doctors who have not written any prescriptions.***
+_A manager would be interested in these query results because it would aid in distinguishing which doctors have not been diagnosing patients properly, or haven’t been as productive as other doctors. This may be helpful if another provider sees the patient again, and can see which provider prescribed the medication, and collaborate on the best treatment plan. This data can also be used to track a provider to see if they are overprescribing medications, as this is a liability. This would allow the managers to address the doctors to make sure there isn’t anything wrong or their patients are just all generally healthy._
 
 SELECT AVG(cost) AS avgOverduePayments
 FROM Billing
 WHERE paymentStatus = 'Overdue';
 
-<u> Returns the average total of all overdue payments.
-A manager would be interested in these query results because it would help calculate the average total of overdue payments which would then be reported to the upper-level management so that they can address the overdue payments and try to push out emails and mail to get their payments or send the overdue payments to collections. This way the hospital can try to recoup their money. </u>
+***Returns the average total of all overdue payments.***
+_A manager would be interested in these query results because it would help calculate the average total of overdue payments which would then be reported to the upper-level management so that they can address the overdue payments and try to push out emails and mail to get their payments or send the overdue payments to collections. This way the hospital can try to recoup their money._
 
 **Complex Queries**
 
@@ -141,8 +141,8 @@ ON EmergencyVisit.patientID = Patient.patientID
 WHERE birthDate > '2000-01-01'
 ORDER BY birthDate ASC;
 
-<u> Returns the patient’s initial assessment/reason for visit, first and last name, for all patients born after January 1st, 2000 in ascending order
-A manager would be interested in these query results because it would help the doctors at the hospital distinguish exactly what problems need to be addressed and if their treatment is working. </u>
+***Returns the patient’s initial assessment/reason for visit, first and last name, for all patients born after January 1st, 2000 in ascending order***
+_A manager would be interested in these query results because it would help the doctors at the hospital distinguish exactly what problems need to be addressed and if their treatment is working._
 
 SELECT fName, lName, results, dateTimeOrdered
 FROM DiagnosticTest
@@ -152,8 +152,8 @@ JOIN Patient
 ON EmergencyVisit.patientID = Patient.patientID
 WHERE testType = 'ultrasound';
 
-<u> Returns the first and last name of the patient who received an ultrasound. Also shows the results and the day/time it was ordered by the doctor.
-A manager would be interested in these query results because it would help distinguish which patients received an ultrasound and which doctor ordered it at a certain time and date. This would help patients and doctors see if the pregnancy is going smoothly and spot out problems early on. </u>
+***Returns the first and last name of the patient who received an ultrasound. Also shows the results and the day/time it was ordered by the doctor.***
+_A manager would be interested in these query results because it would help distinguish which patients received an ultrasound and which doctor ordered it at a certain time and date. This would help patients and doctors see if the pregnancy is going smoothly and spot out problems early on._
 
 SELECT EmergencyVisit.patientID, COUNT(EmergencyVisit.patientID) AS VisitCount
 FROM EmergencyVisit
@@ -162,8 +162,8 @@ ON EmergencyVisit.patientID = Patient.patientID
 GROUP BY patientID
 ORDER BY VisitCount DESC;
 
-<u> Returns the total amount of times each patient has visited the clinic in descending order.
-A manager would be interested in these query results because they could see which patients have had the longest amount of time spent at the hospital and could be responsive for certain patients/situations based on that. They could also figure out why the treatment is not working and the patient is continuing to come back. </u>
+***Returns the total amount of times each patient has visited the clinic in descending order.***
+_A manager would be interested in these query results because they could see which patients have had the longest amount of time spent at the hospital and could be responsive for certain patients/situations based on that. They could also figure out why the treatment is not working and the patient is continuing to come back._
 
 SELECT Billing.paymentStatus, SUM(cost) AS totalCost, fName, lName, EmergencyVisit.patientID
 FROM Billing 
@@ -176,8 +176,8 @@ GROUP BY EmergencyVisit.patientID
 HAVING totalCost > 500
 ORDER BY totalCost DESC;
 
-<u> Returns the total amount overdue, first and last name, and patientID for each patient.
-A manager would be interested in these query results because it would allow them to see exactly how much money is overdue from each patient. This would help send out overdue statements to each person. </u>
+***Returns the total amount overdue, first and last name, and patientID for each patient.***
+_A manager would be interested in these query results because it would allow them to see exactly how much money is overdue from each patient. This would help send out overdue statements to each person._
 
 SELECT p.patientID, p.fName, p.lName,
 (SELECT AVG(prescriptionCount) FROM (SELECT COUNT(*)AS prescriptionCount
@@ -186,8 +186,8 @@ GROUP BY p.patientID) AS presciptCount) AS avgScripts
 FROM Patient p
 ORDER BY avgScripts DESC;
 
-<u> Returns the average amount of prescriptions for each patient.
-A manager would be interested in these query results because it would show how much each medicine inventory is needed in the hospital so that each patient has it and to see the frequency of medicine needed, or if they are being overprescribed. <u>
+***Returns the average amount of prescriptions for each patient.***
+_A manager would be interested in these query results because it would show how much each medicine inventory is needed in the hospital so that each patient has it and to see the frequency of medicine needed, or if they are being overprescribed._
 
 SELECT SUM(Billing.cost) AS TotalCosts, YEAR(EmergencyVisit.arrivalDateTime) AS YearTotal
 FROM Billing 
@@ -199,6 +199,6 @@ WHERE Billing.paymentStatus = 'Paid'
 GROUP BY YEAR(arrivalDateTime)
 ORDER BY YEAR(arrivalDateTime) ASC;
 
-<u> Returns the total amount of paid bills, sorted by each year, at all clinics.
-A manager would be interested in these query results because they show revenue and the difference in unpaid balances. It can also be used for accounting purposes to make sure there aren’t any abnormalities in the total amount of paid bills. </u>
+***Returns the total amount of paid bills, sorted by each year, at all clinics.***
+_A manager would be interested in these query results because they show revenue and the difference in unpaid balances. It can also be used for accounting purposes to make sure there aren’t any abnormalities in the total amount of paid bills._
 
