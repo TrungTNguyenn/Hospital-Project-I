@@ -187,7 +187,7 @@ FROM Patient p
 ORDER BY avgScripts DESC;
 
 <u> Returns the average amount of prescriptions for each patient.
-A manager would be interested in these query results because it would show how much each medicine inventory is needed in the hospital so that each patient has it and to see the frequency of medicine needed, or if they are being overprescribed. </u>
+A manager would be interested in these query results because it would show how much each medicine inventory is needed in the hospital so that each patient has it and to see the frequency of medicine needed, or if they are being overprescribed. <u>
 
 SELECT SUM(Billing.cost) AS TotalCosts, YEAR(EmergencyVisit.arrivalDateTime) AS YearTotal
 FROM Billing 
