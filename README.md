@@ -99,3 +99,76 @@ The Staff entity may have a recursive relationship involving supervisors and sub
 [Data.Dictionary.pdf](https://github.com/TrungTNguyenn/Hospital-Project-I/files/14826663/Data.Dictionary.pdf)
 
 ## Queries:
+Simple Queries
+
+SELECT *
+FROM IncidentLog
+WHERE natureOfIncident REGEXP 'Complaint';
+
+SELECT *
+FROM Patient
+WHERE gender = 'F'
+AND birthDate > '2002-01-01';
+
+SELECT providerID, providerName
+FROM MedicalProvider med
+WHERE NOT EXISTS (SELECT *
+FROM Prescription p
+WHERE p.prescribingPhysician = med.providerID);
+
+SELECT AVG(cost) AS avgOverduePayments
+FROM Billing
+WHERE paymentStatus = 'Overdue';
+
+Complex Queries
+
+SELECT initialAssessment, fName, lName, birthDate
+FROM EmergencyVisit
+JOIN Patient
+ON EmergencyVisit.patientID = Patient.patientID
+WHERE birthDate > '2000-01-01'
+ORDER BY birthDate ASC;
+
+SELECT fName, lName, results, dateTimeOrdered
+FROM DiagnosticTest
+JOIN EmergencyVisit
+ON DiagnosticTest.emergencyVisitID = EmergencyVisit.visitID
+JOIN Patient
+ON EmergencyVisit.patientID = Patient.patientID
+WHERE testType = 'ultrasound';
+
+SELECT EmergencyVisit.patientID, COUNT(EmergencyVisit.patientID) AS VisitCount
+FROM EmergencyVisit
+JOIN Patient
+ON EmergencyVisit.patientID = Patient.patientID
+GROUP BY patientID
+ORDER BY VisitCount DESC;
+
+SELECT Billing.paymentStatus, SUM(cost) AS totalCost, fName, lName, EmergencyVisit.patientID
+FROM Billing 
+JOIN EmergencyVisit
+ON Billing.visitID = EmergencyVisit.visitID
+JOIN Patient
+ON EmergencyVisit.patientID = Patient.patientID
+WHERE Billing.paymentStatus = 'Overdue'
+GROUP BY EmergencyVisit.patientID
+HAVING totalCost > 500
+ORDER BY totalCost DESC;
+
+SELECT p.patientID, p.fName, p.lName,
+(SELECT AVG(prescriptionCount) FROM (SELECT COUNT(*)AS prescriptionCount
+FROM Prescription prescript WHERE prescript.patientID = p.patientID
+GROUP BY p.patientID) AS presciptCount) AS avgScripts
+FROM Patient p
+ORDER BY avgScripts DESC;
+
+SELECT SUM(Billing.cost) AS TotalCosts, YEAR(EmergencyVisit.arrivalDateTime) AS YearTotal
+FROM Billing 
+JOIN EmergencyVisit
+ON Billing.visitID = EmergencyVisit.visitID
+JOIN Clinic
+ON EmergencyVisit.clinicID = Clinic.clinicID
+WHERE Billing.paymentStatus = 'Paid'
+GROUP BY YEAR(arrivalDateTime)
+ORDER BY YEAR(arrivalDateTime) ASC;
+
