@@ -104,14 +104,15 @@ The Staff entity may have a recursive relationship involving supervisors and sub
 [Query Screenshots and Matrix](https://github.com/TrungTNguyenn/Hospital-Project-I/files/14846140/Copy.of.MIST.4610.Queries.pdf)
 
 **Simple Queries**
+**Query 1:** ***Returns all incidents that were listed as complaints.***
+_A manager of the hospital would utilize this to ensure that the hospital would address these incidents and complaints to make sure that they don’t happen again, and they make use of it to determine the performance of their staff. This data can be referenced if a situation leads to legal issues or insurance claims._
 
 SELECT *
 FROM IncidentLog
 WHERE natureOfIncident REGEXP 'Complaint';
 
-***Returns all incidents that were listed as complaints.***
-_A manager of the hospital would utilize this to ensure that the hospital would address these incidents and complaints to make sure that they don’t happen again, and they make use of it to determine the performance of their staff. This data can be referenced if a situation leads to legal issues or insurance claims._
-
+**Query 2: Returns the patientID, first name, last name, birthday, gender, phone number, and medical histories of all female patients who were born after January 2002.***
+_A manager would be interested in these query results because it could help quickly access each female patient’s exact information and medical history born after January 2002 so that no mistakes are made in misidentifying a person._
 SELECT *
 FROM Patient
 WHERE gender = 'F'
