@@ -92,7 +92,7 @@ Additionally, the EmergencyVisit entity is associated with the IncidentLog entit
 The Staff entity may have a recursive relationship involving supervisors and subordinates, representing hierarchical structures within the staff members of the clinic. In this recursive relationship, each staff member (e.g., a doctor) can be associated with one or more other staff members (e.g., nurse). This relationship enables tracking supervisory relationships within the clinic's staff hierarchy, ensuring a clear delineation of reporting structures and responsibilities.
 
 
-<img width="800" alt="Screen Shot 2024-04-03 at 1 15 35 PM" src="https://github.com/TrungTNguyenn/Hospital-Project-I/assets/140082975/1f4deeeb-42f5-4c2c-b553-495e07a04025">
+<img width="780" alt="Screen Shot 2024-04-03 at 1 16 39 PM" src="https://github.com/TrungTNguyenn/Hospital-Project-I/assets/140082975/498abaed-9276-4bba-b81c-68f9c4f55ea3">
 
 
 
