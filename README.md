@@ -97,7 +97,7 @@ The Staff entity may have a recursive relationship involving supervisors and sub
 
 
 ## Data Dictionary: 
-[Data.Dictionary.pdf](https://github.com/TrungTNguyenn/Hospital-Project-I/files/14826663/Data.Dictionary.pdf)
+[Data.Dictionary (PDF)](https://github.com/TrungTNguyenn/Hospital-Project-I/files/14826663/Data.Dictionary.pdf)
 
 ## Queries:
 [Query Screenshots and Matrix](https://github.com/TrungTNguyenn/Hospital-Project-I/files/14846140/Copy.of.MIST.4610.Queries.pdf)
