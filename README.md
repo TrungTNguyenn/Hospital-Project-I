@@ -37,35 +37,35 @@ The Patient entity is linked to the Clinic entity through the EmergencyVisit tab
 
 **Clinic-Staff Relationship (1:M):**
 
-The Staff entity is directly related to the Clinic entity, indicating a one-to-many relationship. This relationship allows for assigning staff to particular clinics, ensuring that staff information is associated with the respective clinic where they work.
+The Staff entity is directly related to the Clinic entity, indicating a one-to-many relationship. This relationship allows for assigning staff to particular clinics, ensuring that staff information is associated with the respective clinic where they work. Various employees can be assigned to a single clinic.
 
 **Patient-EmergencyVisit Relationship (1:M):**
 
-The EmergencyVisit table maintains a one-to-many relationship with the Patient entity. Each emergency visit involves a specific patient, facilitating comprehensive record-keeping and continuity of care.
+The EmergencyVisit table maintains a one-to-many relationship with the Patient entity. Each emergency visit involves a specific patient, facilitating comprehensive record-keeping and continuity of care. One patient can have multiple emergency visits.
 
 **Staff-EmergencyVisit Relationship (1:M):**
 
-Similarly, the EmergencyVisit table is related to the Staff entity in a one-to-many relationship. Each emergency visit involves staff members who provide medical care, ensuring proper documentation of staff contributions to patient care.
+Similarly, the EmergencyVisit table is related to the Staff entity in a one-to-many relationship. Each emergency visit involves staff members who provide medical care, ensuring proper documentation of staff contributions to patient care. One staff member will handle multiple emergency visits.
 
 **MedicalProvider-EmergencyVisit Relationship (1:M):**
 
-Additionally, the EmergencyVisit table is associated with the MedicalProvider entity in a one-to-many relationship. This relationship allows for capturing details of medical providers associated with each emergency visit, facilitating coordination and communication between clinic staff and external healthcare professionals.
+Additionally, the EmergencyVisit table is associated with the MedicalProvider entity in a one-to-many relationship. This relationship allows for capturing details of medical providers associated with each emergency visit, facilitating coordination and communication between clinic staff and external healthcare professionals. Many different patients  during their emergency visits may utilize the same medical provider.
 
 **EmergencyVisit-DiagnosticTest Relationship (1:M):**
 
-The DiagnosticTest table is linked to the EmergencyVisit table in a one-to-many relationship. This relationship enables tracking diagnostic tests conducted during each emergency visit, ensuring accurate documentation of medical procedures and results.
+The DiagnosticTest table is linked to the EmergencyVisit table in a one-to-many relationship. This relationship enables tracking diagnostic tests conducted during each emergency visit, ensuring accurate documentation of medical procedures and results. There may need to be several tests taken during a visit.
 
 **EmergencyVisit-Prescription Relationship (1:M):**
 
-Similarly, the Prescription table is related to the EmergencyVisit table in a one-to-many relationship. This relationship allows for recording prescription details within the context of specific emergency visits, ensuring proper medication management and documentation.
+Similarly, the Prescription table is related to the EmergencyVisit table in a one-to-many relationship. This relationship allows for recording prescription details within the context of specific emergency visits, ensuring proper medication management and documentation. A doctor may prescribe multiple medications/prescriptions during a single visit.
 
 **EmergencyVisit-MedicalProcedure Relationship (1:M):**
 
-The MedicalProcedure table is associated with the EmergencyVisit table in a one-to-many relationship. This relationship enables tracking medical procedures conducted during each emergency visit, facilitating comprehensive documentation of patient care interventions.
+The MedicalProcedure table is associated with the EmergencyVisit table in a one-to-many relationship. This relationship enables tracking medical procedures conducted during each emergency visit, facilitating documentation of patient care procedures. There may need to be multiple procedures done in a single visit.
 
 **EmergencyVisit-Billing Relationship (1:1):**
 
-The Billing table maintains a one-to-one relationship with the EmergencyVisit table. This relationship indicates that each visit is a separate instance with its billing id. billing information is associated with one emergency visit, ensuring accurate financial documentation and patient billing.
+The Billing table maintains a one-to-one relationship with the EmergencyVisit table. This relationship indicates that each visit is a separate instance with its billing id. billing information is associated with one emergency visit, ensuring accurate financial documentation and patient billing. There will only be one comprehensove bill for a single visit.
 
 **InsuranceProvider-Billing Relationship (1:M):**
 
@@ -89,7 +89,7 @@ Additionally, the EmergencyVisit entity is associated with the IncidentLog entit
 
 **Staff-Staff (Supervisor-Subordinate) Recursive Relationship (1:M):**
 
-The Staff entity may have a recursive relationship involving supervisors and subordinates, representing hierarchical structures within the staff members of the clinic. In this recursive relationship, each staff member (e.g., a supervisor) can be associated with one or more other staff members (e.g., subordinates). This relationship enables tracking supervisory relationships within the clinic's staff hierarchy, ensuring a clear delineation of reporting structures and responsibilities.
+The Staff entity may have a recursive relationship involving supervisors and subordinates, representing hierarchical structures within the staff members of the clinic. In this recursive relationship, each staff member (e.g., a doctor) can be associated with one or more other staff members (e.g., nurse). This relationship enables tracking supervisory relationships within the clinic's staff hierarchy, ensuring a clear delineation of reporting structures and responsibilities.
 
 
 <img width="768" alt="Screen Shot 2024-04-03 at 1 02 29 PM" src="https://github.com/TrungTNguyenn/Hospital-Project-I/assets/140082975/c6f6b95e-e559-4c64-8a58-195c38c52851">
