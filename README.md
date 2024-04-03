@@ -135,7 +135,7 @@ WHERE paymentStatus = 'Overdue';
 ***Returns the average total of all overdue payments.***
 _A manager would be interested in these query results because it would help calculate the average total of overdue payments which would then be reported to the upper-level management so that they can address the overdue payments and try to push out emails and mail to get their payments or send the overdue payments to collections. This way the hospital can try to recoup their money._
 
-**Complex Queries**
+**<u>Complex Queries</u>**
 
 SELECT initialAssessment, fName, lName, birthDate
 FROM EmergencyVisit
